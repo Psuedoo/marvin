@@ -11,6 +11,10 @@ token = os.getenv('TOKEN')
 
 intents = discord.Intents.default()
 
+initial_extensions = [
+    "cogs.basic"
+]
+
 bot = commands.Bot(command_prefix='/', intents=intents)
 @bot.event
 async def on_ready():
@@ -24,8 +28,8 @@ async def on_member_join(member):
     if guild.system_channel:
         await guild.system_channel.send(f'Welcome {member.mention} to {guild.name}!')
 
-@bot.command(name="up")
-async def is_up(ctx):
-    await ctx.send('I am alive!')
+if __name__ == '__main__':
+    for extension in initial_extensions:
+        bot.load_extension(extension)
 
 bot.run(token)
