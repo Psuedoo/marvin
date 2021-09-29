@@ -11,4 +11,4 @@ class Basic(commands.Cog):
         await ctx.send('I am alive!')
 
 def setup(bot):
-    bot.add_cog(Basic(cog))
+    bot.add_cog(Basic(bot))

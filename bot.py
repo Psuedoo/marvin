@@ -11,11 +11,8 @@ token = os.getenv('TOKEN')
 
 intents = discord.Intents.default()
 
-initial_extensions = [
-    "cogs.basic"
-]
-
 bot = commands.Bot(command_prefix='/', intents=intents)
+
 @bot.event
 async def on_ready():
     print("Logged in")
@@ -27,6 +24,10 @@ async def on_member_join(member):
     guild = member.guild
     if guild.system_channel:
         await guild.system_channel.send(f'Welcome {member.mention} to {guild.name}!')
+
+initial_extensions = [
+    "cogs.basic"
+]
 
 if __name__ == '__main__':
     for extension in initial_extensions:
