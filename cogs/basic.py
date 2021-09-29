@@ -11,7 +11,6 @@ class Basic(commands.Cog):
     async def is_up(self, ctx):
         await ctx.send('I am alive!')
 
-    
 
 def setup(bot):
     bot.add_cog(Basic(bot))
